@@ -22,7 +22,7 @@ const AddCustomer: React.FC<AddCustomerProps> = () => {
 
   const handleFormSubmit = async (data: any) => {
     try {
-      if (initialValues) {
+      if (heading === "Edit Customer Details") {
         // If initialValues exist, it's an edit operation
         await axios.put(`http://localhost:8080/api/customers/${initialValues.id}`, data, {
           headers: {
@@ -47,8 +47,8 @@ const AddCustomer: React.FC<AddCustomerProps> = () => {
     let validationRules: Record<string, any> = { required: true };
 
     if (
-      value === "firstName" ||
-      value === "lastName" ||
+      value === "first_name" ||
+      value === "last_name" ||
       value === "street" ||
       value === "address" ||
       value === "city" ||
@@ -91,8 +91,8 @@ const AddCustomer: React.FC<AddCustomerProps> = () => {
       <h1 className="text-2xl font-bold mb-4">{heading}</h1>
       <form onSubmit={handleSubmit(handleFormSubmit)} className="w-full max-w-lg">
         <div className="flex flex-wrap -mx-3 mb-6">
-          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">{customInput("First Name", "firstName")}</div>
-          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">{customInput("Last Name", "lastName")}</div>
+          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">{customInput("First Name", "first_name")}</div>
+          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">{customInput("Last Name", "last_name")}</div>
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">{customInput("Street", "street")}</div>
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">{customInput("Address", "address")}</div>
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">{customInput("City", "city")}</div>

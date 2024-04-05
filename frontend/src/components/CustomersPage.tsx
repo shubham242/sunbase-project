@@ -48,6 +48,8 @@ const CustomersPage: React.FC = () => {
         },
       });
 
+      window.location.reload();
+
       console.log("Customer list synced successfully.");
     } catch (error) {
       console.error("Failed to sync customer list:", error);
@@ -98,8 +100,8 @@ const CustomersPage: React.FC = () => {
           value={selectedFilter}
           onChange={(e) => setSelectedFilter(e.target.value)}
         >
-          <option value="firstName">First Name</option>
-          <option value="lastName">Last Name</option>
+          <option value="first_name">First Name</option>
+          <option value="last_name">Last Name</option>
           <option value="email">Email</option>
           <option value="phone">Phone</option>
         </select>
